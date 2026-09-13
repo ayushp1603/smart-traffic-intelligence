@@ -1,0 +1,18 @@
+services:
+  postgres:
+    image: postgis/postgis:16-3.4
+    container_name: smart-traffic-postgres
+
+    environment:
+      POSTGRES_DB: smart_traffic
+      POSTGRES_USER: traffic_admin
+      POSTGRES_PASSWORD: traffic_password
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
